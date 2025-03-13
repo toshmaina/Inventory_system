@@ -1,4 +1,5 @@
 <?php
+//Turn on output buffering
   ob_start();
   require_once('includes/load.php');
   if($session->isUserLoggedIn(true)) { redirect('home.php', false);}
@@ -6,8 +7,8 @@
 <?php include_once('layouts/header.php'); ?>
 <div class="login-page">
     <div class="text-center">
-       <h1>Login Panel</h1>
-       <h4>Inventory Management System</h4>
+       <h1>Login</h1>
+       <h4>Fleet Hub Inventory Management System </h4>
      </div>
      <?php echo display_msg($msg); ?>
       <form method="post" action="auth.php" class="clearfix">
