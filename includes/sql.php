@@ -1,4 +1,14 @@
 <?php
+  /**
+   * SQL Helper Functions
+   * 
+   * This file contains database interaction functions for:
+   * - Basic CRUD operations
+   * - User authentication and session management  
+   * - Product and sales management
+   * - Reporting and analytics
+   */
+  
   require_once('includes/load.php');
 
 /*--------------------------------------------------------------*/
@@ -81,6 +91,11 @@ function tableExists($table){
  /* Login with the data provided in $_POST,
  /* coming from the login form.
 /*--------------------------------------------------------------*/
+  /**
+   * Authentication Functions
+   * ----------------------
+   * The following functions handle user login and session management
+   */
   function authenticate($username='', $password='') {
     global $db;
     $username = $db->escape($username);
@@ -134,7 +149,7 @@ function tableExists($table){
   }
   /*--------------------------------------------------------------*/
   /* Find all user by
-  /* Joining users table and user gropus table
+  /* Joining users table and user groups table
   /*--------------------------------------------------------------*/
   function find_all_user(){
       global $db;
@@ -206,7 +221,7 @@ function tableExists($table){
      }
    /*--------------------------------------------------------------*/
    /* Function for Finding all product name
-   /* JOIN with categorie  and media database table
+   /* JOIN with categories  and media database table
    /*--------------------------------------------------------------*/
   function join_product_table(){
      global $db;
@@ -350,5 +365,11 @@ function  monthlySales($year){
   $sql .= " ORDER BY date_format(s.date, '%c' ) ASC";
   return find_by_sql($sql);
 }
+
+  /**
+   * User Management Functions  
+   * -----------------------
+   * Functions for managing users, groups and access control
+   */
 
 ?>
